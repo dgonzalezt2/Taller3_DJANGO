@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card shadow-lg border-0 rounded-lg">
+        <div class="card-header">
+          <h3 class="text-center font-weight-light my-4">Login 👤</h3>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            {% if error %}
+            <div class="alert alert-danger mt-3" role="alert">
+              {{ error }}
+            </div>
+            {% endif %}
+
+            <div class="d-flex align-items-center justify-content-center mt-4 mb-0 text-center">
+              <button type="submit" class="btn btn-primary mx-auto">Login 👤</button>
+            </div>
+          </form>
+          <div class="d-flex justify-content-center mt-4">
+            <a href="/" class="btn btn-secondary">Regresar al inicio 🔙</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
